@@ -1,13 +1,14 @@
 # depslib dependency file v1.0
-1621782144 source:e:\cse reception\welcome 2k16\fourth year 2nd term(4-2)\computer graphics\lab\lab 04\cg1\main.cpp
+1623623327 source:e:\cse reception\welcome 2k16\fourth year 2nd term(4-2)\computer graphics\lab\lab 04\cg1\main.cpp
 	<GL/gl.h>
 	<GL/glu.h>
 	<GL/glut.h>
 	<stdlib.h>
 	<stdio.h>
-	<windows.h>
 	<stdlib.h>
 	<math.h>
+	<windows.h>
+	<mmsystem.h>
 	<bits/stdc++.h>
 	"bmploader.h"
 
