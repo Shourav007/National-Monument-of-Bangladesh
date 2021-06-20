@@ -5,9 +5,9 @@ LoadTexture("E:\\CSE reception\\Welcome 2K16\\fourth year 2nd term(4-2)\\Compute
 the address should be specified for someone's own resource addresses.
 
 The topics that you can check, 
-##1 skybox
-##2 curve
-##3 fractals
-##4 National monument object
-##5 How to rasterize character strings inside the 3d space
+1. skybox
+2. curve
+3. fractals
+4. National monument object
+5. How to rasterize character strings inside the 3d space
     
