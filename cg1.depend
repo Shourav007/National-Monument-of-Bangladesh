@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1623623327 source:e:\cse reception\welcome 2k16\fourth year 2nd term(4-2)\computer graphics\lab\lab 04\cg1\main.cpp
+1623646506 source:e:\cse reception\welcome 2k16\fourth year 2nd term(4-2)\computer graphics\lab\lab 04\cg1\main.cpp
 	<GL/gl.h>
 	<GL/glu.h>
 	<GL/glut.h>

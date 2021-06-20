@@ -575,7 +575,7 @@ void light(GLenum light_num, float posX, float posY, float posZ,
 
     if(spot)
     {
-        GLfloat spot_direction[] = { 0.0, -1.0, 0.0 };
+        GLfloat spot_direction[] = { 0.0, 1.0, 0.0 };
         glLightfv(light_num, GL_SPOT_DIRECTION, spot_direction);
         glLightf( light_num, GL_SPOT_CUTOFF, spot_cut);
     }
@@ -595,7 +595,7 @@ void drawSun()
     glTranslatef(0,45,0);
     if(sun_emission)
     {
-        light(GL_LIGHT1, 0, 42, 0 ,1, 60);
+        light(GL_LIGHT1, 0, 32, 0 ,1, 60);
     }
     glPushMatrix();
     set_mat_prop(1,1,1, sun_emission);
@@ -1075,6 +1075,26 @@ GLfloat ctrlpoints[L+1][3] =
 {-0.2000, 0.0250, 13.0000}
 
 };
+
+GLfloat fountain_points[L+1][3] =
+{
+{2.7500, 0.8250, 13.0000},
+{4.0250, 1.3750, 13.0000},
+{5.1250, 2.1250, 13.0000},
+{6.7000, 3.0500, 13.0000},
+{7.5000, 4.0250, 13.0000},
+{7.4250, 5.2250, 13.0000},
+{6.4750, 5.8250, 13.0000},
+{5.7500, 6.1000, 13.0000},
+{5.2500, 6.2250, 13.0000},
+{4.3500, 6.3750, 13.0000},
+{3.2000, 6.3750, 13.0000},
+{2.2250, 6.3000, 13.0000},
+{1.1000, 6.3250, 13.0000},
+{0.1250, 6.1000, 13.0000},
+{-0.8000, 6.0750, 13.0000}
+};
+
 double ex=0, ey=0, ez=15, lx=0,ly=0,lz=0, hx=0,hy=1,hz=0;
 
 float wcsClkDn[3],wcsClkUp[3];
@@ -1355,6 +1375,32 @@ void display5(void)
 
 }
 
+
+void flower()
+{
+    //ctrlpoints[L+1][3]
+    set_mat_prop(1,0,0,1);
+    glRotatef(90, 1,0,0);
+    glBegin (GL_QUAD_STRIP);
+    for (int i = 0; i < 15; i++)
+    {
+    glVertex3f (fountain_points[i][0], fountain_points[i][1] , fountain_points[i][2]);
+    glVertex3f (fountain_points[i][0]-0.1, fountain_points[i][1]-0.1 , fountain_points[i][2]-0.1);
+    }
+
+    glEnd ();
+}
+void draw_flower()
+{
+    for(int i=0; i<=360; i+=60)
+    {
+    glPushMatrix();
+    glRotatef(i, 0,1,0);
+    flower();
+    glPopMatrix();
+    }
+}
+
 void display(void)
 {
 
@@ -1366,9 +1412,8 @@ void display(void)
 
     gluLookAt(eyex,eyey,eyez,refx,refy,refz, 0,1,0);
 
-    //glRotated(0,0,0,0);
-    //glRotated(a,0,1,0);
-    //drawSun();
+
+
 
     //light(GL_LIGHT3,0,15,15,false);
     glPushMatrix();
@@ -1441,6 +1486,22 @@ void display(void)
     glTranslatef(-15,3.5,20);
     set_mat_prop(0.545, 0.000, 0.000);
     DrawCurved(ctrlpoints, 22) ;
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(0,17,10);
+    glScalef(1,1,1);
+    draw_flower();
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(-12,10.5,10);
+    glScalef(0.5,0.5,0.5);
+    draw_flower();
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(12,10.5,10);
+    glScalef(0.5,0.5,0.5);
+    draw_flower();
     glPopMatrix();
 
     glPushMatrix();
